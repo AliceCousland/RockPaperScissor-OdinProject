@@ -13,6 +13,16 @@ let random = Math.floor(Math.random() * computerPlay.length);
     console.log (random, computerPlay[random]);
 // computer's decision for random element in array
 
+game();
+function game () {
+    computerScore = 0;
+    playerScore = 0;
+    for (let i = 0; i < 5, i++;) {
+        playerSelection()
+    }
+    console.log(declareWinner());
+}
+
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay().toLowerCase();
     playerSelection = playerSelection().toLowerCase();
