@@ -1,23 +1,25 @@
-let playerSelection = prompt('Rock, Paper, or Scissors?', '');
-    if ((playerSelection.toLowerCase()=='rock')
-    || (playerSelection.toLowerCase()=='paper')
-    || (playerSelection.toLowerCase()=='scissors')) { 
-        console.log (playerSelection) //Player input log
-    } else {
-        alert('Please choose a valid item.');
-    }
+const myArray = [
+    'Rock',
+    'Paper',
+    'Scissors'
+];
 
-let computerPlay = ["Rock", "Paper", "Scissors"];
-let random = Math.floor(Math.random() * computerPlay.length);
-    console.log (random, computerPlay[random]);
+function computerPlay() {
+    return myArray [Math.floor(Math.random() * myArray.length)];
+}
 // computer's decision for random element in array
+
+let computerScore;
+let playerScore;
+let computerSelection
+let playerSelection
 
 game();
 function game () {
     computerScore = 0;
     playerScore = 0;
     for (let i = 0; i < 5, i++;) {
-        playerSelection()
+        onUserInput();
     }
     console.log(declareWinner()); // loop to check for end of game
 
@@ -32,6 +34,18 @@ function game () {
             alert(playerScore + '-' + computerScore + '\nYou lost!')
             return playerScore + '-' + computerScore + '\nYou lost!'
         }
+    }
+}
+
+function onUserInput() {
+    playerSelection = prompt('Rock, Paper, or Scissors?', '');
+    if ((playerSelection.toLowerCase()=='rock')
+    || (playerSelection.toLowerCase()=='paper')
+    || (playerSelection.toLowerCase()=='scissors')) { 
+        console.log (playRound(playerSelection,computerPlay)); //Player input log + round
+    } else {
+        alert('Please choose a valid item.');
+        onUserInput();
     }
 }
 
